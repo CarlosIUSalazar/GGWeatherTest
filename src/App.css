@@ -1,0 +1,52 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: #2A344A;
+}
+
+.gameGallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+input[type=text] {
+  background-color: #50D1AE;
+  padding: 0.5rem;
+  border: none;
+  width: 70%;
+}
+
+button {
+  color: #fff;
+  padding: 0.5rem;
+  background-color: black;
+  border: none;
+  transition-duration: 0.6s;
+}
+
+button:hover {
+  background-color: #50D1AE;
+  color: #000000;
+}
+
+.images {
+    width: 30rem;
+    margin: 3rem;
+    background-color: #50D1AE;
+    padding: 2rem;
+    position: relative;
+    border-radius: 0.5rem;
+}
+
+.images img {
+  width: 26rem;
+  height: 20rem;
+  border-radius: 0.5rem;
+  object-fit: contain;
+  object-fit: cover;
+}
+
+
