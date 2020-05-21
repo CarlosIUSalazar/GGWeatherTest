@@ -12,7 +12,7 @@ export default function SavedGamesView({setView}) {
 // READ FROM DB
 const fetchData = async () => {
   const db = firebase.firestore();
-  const data = await db.collection('MyVideogames').get();
+  const data = await db.collection('MyVideogames').orderBy('Title').get();
   setGames(data.docs.map((doc) => doc.data()));
 };
 fetchData();
