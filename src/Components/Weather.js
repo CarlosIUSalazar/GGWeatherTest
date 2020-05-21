@@ -25,7 +25,7 @@ function convertToFarenheit(tempKelvin){
     setSubmitLocation(location);
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=89e18fe833ea4fde74592dc27b57d117`
+        `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=89e18fe833ea4fde74592dc27b57d117`
       )
       .then((response) => {
         //set status
