@@ -53,7 +53,7 @@ function convertToFarenheit(tempKelvin){
         </button>
       </div>
 
-      <h2>Your city is: {submitLocation} 🌁 The weather is: {weather} 🌡️ Temperature: {tempCelsius} / {tempFarenheit}</h2>
+      <h2>Your city is: {submitLocation}   🌁 The weather is: {weather}   🌡️ Temperature: {tempCelsius} / {tempFarenheit}</h2>
         <GameGallery key = {uuidv4()} weather = {weather}/>
         </>
     )

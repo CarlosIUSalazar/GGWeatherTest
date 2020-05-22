@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import firebase from '../FirebaseConfig';
-
+import {v4 as uuidv4} from "uuid";
 const db = firebase.firestore();
 
 
@@ -61,6 +61,7 @@ const SingleGameView = ({gameId, setView}) => {
 
   function savetoDatabase(){
     db.collection("MyVideogames").add({
+      id : uuidv4(),
       Description: description,
       Image: image,
       Metacritic: metacriticRating,
@@ -74,7 +75,8 @@ const SingleGameView = ({gameId, setView}) => {
     })
     .then(function() {
       console.log("Document successfully written!");
-      window.location = "/";
+      //window.location = "/";
+      alert("Game successfully saved!")
     })
     .catch(function(error) {
       console.error("Error writing document: ", error);
@@ -87,19 +89,21 @@ const SingleGameView = ({gameId, setView}) => {
     <button class="btn btn-warning" onClick={() => savetoDatabase()}>Save In my Database</button>
     <button class="btn btn-info" onClick={() => setView("savedGamesView")}>View My Saved Games</button>
     <h1>{title}</h1>
-    <img src={image} width="700" height ="550" alt="Videogame"></img>
-    <img src={image2} width="700" height ="550" alt="Videogame"></img>
-    <h2>Rating: {rating}</h2>
-    <h3>Platform: {platform}</h3>
-    <h3>Released on: {year}</h3>
-    <h3>Published by: {publisher}</h3>
-    <h3>Website: {website}</h3>
-    <h3>Metacritic Rating: {metacriticRating}</h3>
-    <h4>Description: {description}</h4>
+    <img src={image} class="singlegame" alt="Videogame"></img>
+    <img src={image2} class="singlegame" alt="Videogame"></img>
+    <center><div className="singlegameinfo">
+    <p><b>Rating:</b> {rating}/5</p>
+    <p><b>Platform:</b> {platform}</p>
+    <p><b>Released on:</b> {year}</p>
+    <p><b>Published by:</b> {publisher}</p>
+    <p><b>Website:</b> {website}</p>
+    <p><b>Metacritic Rating:</b> {metacriticRating}/100</p>
+    <p><b>Description:</b> {description}</p>
     <video  loop autoPlay>
     <source src={videoClip} type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
     <source src={videoClip} type="video/ogg" />Your browser does not support the video tag. I suggest you upgrade your browser.
   </video>
+  </div></center>
     </>
   )
 }
