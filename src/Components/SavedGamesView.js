@@ -9,14 +9,16 @@ export default function SavedGamesView({setView}) {
 
     const [ games, setGames ] = React.useState([]);
 
+    useEffect(() => {
+        fetchData();
+    }, [])
+
 // READ FROM DB
 const fetchData = async () => {
   const db = firebase.firestore();
   const data = await db.collection('MyVideogames').orderBy('Title').get();
   setGames(data.docs.map((doc) => doc.data()));
 };
-fetchData();
-
 
 // DELETE FROM DB 
 const deleteGame = () => {
