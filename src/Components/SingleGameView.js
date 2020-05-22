@@ -83,9 +83,9 @@ const SingleGameView = ({gameId, setView}) => {
 
   return (
     <>
-    <button onClick={() => setView("allGamesView")}>Back To Games List</button>
-    <button onClick={() => savetoDatabase()}>Save In my Database</button>
-    <button onClick={() => setView("savedGamesView")}>View My Saved Games</button>
+    <button class="btn btn-info" onClick={() => setView("allGamesView")}>Back To Games List</button>
+    <button class="btn btn-warning" onClick={() => savetoDatabase()}>Save In my Database</button>
+    <button class="btn btn-info" onClick={() => setView("savedGamesView")}>View My Saved Games</button>
     <h1>{title}</h1>
     <img src={image} width="700" height ="550" alt="Videogame"></img>
     <img src={image2} width="700" height ="550" alt="Videogame"></img>

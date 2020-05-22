@@ -1,13 +1,13 @@
 import firebase from 'firebase'
 
 const config = {
-    apiKey: "AIzaSyDrYX3UQFYQwcBAurkHjY2aLP01NTb-eHI",
-    authDomain: "halfwayassessmentpart2react.firebaseapp.com",
-    databaseURL: "https://halfwayassessmentpart2react.firebaseio.com",
-    projectId: "halfwayassessmentpart2react",
-    storageBucket: "halfwayassessmentpart2react.appspot.com",
-    messagingSenderId: "44494397487",
-    appId: "1:44494397487:web:026ae121e5b58690fce6da"
+  apiKey: "AIzaSyDW_J1FGqI4p5vYNiWfkhjyTnLe0L-Ec0Q",
+  authDomain: "ggwheather.firebaseapp.com",
+  databaseURL: "https://ggwheather.firebaseio.com",
+  projectId: "ggwheather",
+  storageBucket: "ggwheather.appspot.com",
+  messagingSenderId: "687928053821",
+  appId: "1:687928053821:web:2bdeedab530ebbd5bfda54"
   };
   // Initialize Firebase
   firebase.initializeApp(config);

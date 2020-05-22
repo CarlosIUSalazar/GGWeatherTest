@@ -49,11 +49,11 @@ function convertToFarenheit(tempKelvin){
           onChange={(e) => setLocation(e.target.value)}
         />
         <button className="city-add-button" onClick={onSubmit}>
-          Add City
+          Search City
         </button>
       </div>
 
-      <h2>Your city is: {submitLocation} 🌩️ The weather is: {weather} 🌩️ Temperature: {tempCelsius} / {tempFarenheit}</h2>
+      <h2>Your city is: {submitLocation} 🌁 The weather is: {weather} 🌡️ Temperature: {tempCelsius} / {tempFarenheit}</h2>
         <GameGallery key = {uuidv4()} weather = {weather}/>
         </>
     )

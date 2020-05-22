@@ -1,7 +1,7 @@
 import React, {useState, useEffect, Fragment} from "react";
 import axios from "axios";
 import firebase from '../FirebaseConfig';
-
+import {v4 as uuidv4} from "uuid";
 const db = firebase.firestore();
 
 
@@ -19,24 +19,20 @@ fetchData();
 
 
 // DELETE FROM DB 
-const deleteGame = (id) => {
-  db
-    .collection('MyGames')
-    //.doc(`${id}`)
-    .doc(id)
-    .delete()
-    .then(function() {
-      console.log('Note successfully deleted');
-    })
-    .catch(function(error) {
-      console.error('Error removing Game: ', error);
+const deleteGame = () => {
+    db.collection("MyVideogames")
+    .get()
+    .then(res => {
+      res.forEach(element => {
+        element.ref.delete();
+      });
     });
 };
 
     return (
         <Fragment>
         {' '}
-        <button onClick={() => setView("allGamesView")}>Back To Games List</button>
+        <button className="btn btn-info" onClick={() => setView("allGamesView")}>Back To Games List</button>
         <table className="table mt-5 text-center">
             <thead>
                 <tr>
@@ -46,10 +42,10 @@ const deleteGame = (id) => {
             </thead>
             <tbody>
                 {games.map((game) => (
-                    <tr key={game.id}>
+                    <tr key={uuidv4()}>
                         <td>{game.Title}</td>
                         <td>
-                            <button className="btn btn-danger" onClick={() => deleteGame(game.id)}>
+                            <button className="btn btn-danger" onClick={() => console.log("Game deleted")}>
                                 Delete
                             </button>
                         </td>
@@ -57,6 +53,11 @@ const deleteGame = (id) => {
                 ))}
             </tbody>
         </table>
+        
+        <>
+        <button className="btn btn-danger" onClick={() => deleteGame()}>Delete All Games</button>
+        
+        </>
     </Fragment>
     )
 }
